@@ -16,4 +16,8 @@ class Spacecraft extends Model
 {
     return $this->belongsToMany(CrewMember::class, 'spacecraft_crew', 'spacecraft_id', 'crew_member_id')->withPivot('role');
 }
+public function lunarMissions()
+{
+    return $this->hasMany(LunarMission::class);
+}
 }

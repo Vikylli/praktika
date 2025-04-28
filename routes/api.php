@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\RegisterController;
+use App\Http\Controllers\LunarMissionController;
 use App\Http\Controllers\SpacecraftController;
+use App\Models\LunarMission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::resource('spacecraft', SpacecraftController::class)->only(['index', 'store',  'update', 'destroy']);
 Route::get('spacecraft/{id}', [SpacecraftController::class, 'show']);
+
+// Route::post('/lunar_missions', [LunarMissionController::class, 'store']);
+// Route::delete('lunar_missions/{id}', [LunarMissionController::class, 'destroy']);
+
+Route::resource('lunar_missions', LunarMissionController::class);
